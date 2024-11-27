@@ -1,32 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 
-
-const Task = ({description}) => {
-    const[isCompleted, setIsCompleted] = useState(false);
-
-    const toggleCompletion = () => {
-        setIsCompleted(!isCompleted);
-    }
-
-return (
-    <li style={{ textDecoration: isCompleted ? 'line-through' : 'none' }}>
+const Task = ({ task, onToggleTask, onDeleteTask }) => {
+  return (
+    <li style={{ textDecoration: task.isComplete ? "line-through" : "none" }}>
       <label>
-        <input type="checkbox" checked={isCompleted} onChange={toggleCompletion} />
-        {description}
+        <input
+          type="checkbox"
+          checked={task.isComplete}
+          onChange={() => onToggleTask(task.id)}
+        />
+        {task.description}
       </label>
+      <button onClick={() => onDeleteTask(task.id)}>Delete</button>
     </li>
   );
 };
 
 export default Task;
-
-/**
- * TODO: implement the Task component
- * @function Task
- * @returns {React.Component} A <li> containing the task description and a checkbox to toggle completion
- */
-/** export default function Task() {} */
-
-
-
-
