@@ -8,7 +8,7 @@ function App() {
 
   const handleAddTask = (description) => {
     if (!description.trim()) return; 
-    const newTask = { id: uuidv4(), description, isComplete: false };
+    const newTask = {description, isComplete: false };
     setTasks([...tasks, newTask]);
   };
 
