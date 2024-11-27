@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Form from "./Form";
 import TaskList from "./TaskList";
-import { v4 as uuidv4 } from "uuid";
+
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -9,7 +9,6 @@ function App() {
 
   const handleAddTask = (description) => {
     const newTask = {
-      id: uuidv4(), 
       description,
       isComplete: false,
     };
